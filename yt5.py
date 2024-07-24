@@ -66,4 +66,4 @@ a = l[-1]['url']
 print("AUDIO : ", a)
 print("VIDEO : ", v)
 
-os.system(f"ffmpeg -ss 00:00:00 -re -i '{v}' -ss 00:00:00 -re -i '{a}' -threads 4 -vf transpose=1 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/rd8t-1ad3-akz4-zj6z-e14w")
+os.system(f"ffmpeg -ss 05:00:00 -re -i '{v}' -ss 05:00:00 -re -i '{a}' -threads 4 -vf transpose=1 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/rd8t-1ad3-akz4-zj6z-e14w")
