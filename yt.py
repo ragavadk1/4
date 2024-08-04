@@ -36,7 +36,7 @@ json_data = {
             'utcOffsetMinutes': 0,
         },
     },
-    'videoId': '2_p9wLMNOeM',
+    'videoId': '6zmjgAYM70Y',
     'playbackContext': {
         'contentPlaybackContext': {
             'html5Preference': 'HTML5_PREF_WANTS',
@@ -66,4 +66,4 @@ a = l[-1]['url']
 print("AUDIO : ", a)
 print("VIDEO : ", v)
 
-os.system(f"ffmpeg -ss 1:00:00 -to 12:00:00 -re -i '{v}' -ss 1:00:00 -to 12:00:00 -re -i '{a}' -threads 4 -vcodec copy -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+os.system(f"ffmpeg -ss 00:00:00 -to 08:00:00 -re -i '{v}' -ss 00:00:00 -to 08:00:00 -re -i '{a}' -threads 4 -vcodec copy -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
