@@ -36,7 +36,7 @@ json_data = {
             'utcOffsetMinutes': 0,
         },
     },
-    'videoId': 'jTx5GetgC-M',
+    'videoId': 'KuDR6e29eGI',
     'playbackContext': {
         'contentPlaybackContext': {
             'html5Preference': 'HTML5_PREF_WANTS',
@@ -54,7 +54,7 @@ response = requests.post(
 )
 pr = response.json()['streamingData']["adaptiveFormats"]
 #pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
-print(response.text)
+#print(response.text)
 l = []
 for __ in pr:
     if "1080p" in str(__) and "mp4" in str(__):
@@ -66,4 +66,4 @@ a = l[-1]['url']
 print("AUDIO : ", a)
 print("VIDEO : ", v)
 
-os.system(f"ffmpeg -ss 00:00:00 -to 28:36:58 -re -i '{v}' -ss 00:00:00 -to 28:36:58 -re -i '{a}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+os.system(f"ffmpeg -ss 7:00:00 -to 10:00:00 -re -i '{v}' -ss 7:00:00 -to 10:00:00 -re -i '{a}' -threads 4 -vcodec libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/w1s4-677b-hj6m-0kf6-2988")
