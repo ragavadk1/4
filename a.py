@@ -78,7 +78,7 @@ response = requests.post(
     headers=headers,
     json=json_data,
 )
-pr = json.loads(response.text)["streamingData"]["adaptiveFormats"]
+pr = json.loads(response.text)#["streamingData"]["adaptiveFormats"]
 print(pr)
 
 
