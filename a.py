@@ -6,18 +6,18 @@ cookies = {
     'PREF': 'hl=en&tz=UTC',
     'SOCS': 'CAI',
     'GPS': '1',
-    'YSC': 'ypCO9qGoKSY',
-    'VISITOR_INFO1_LIVE': 'qBJvehrqV6s',
-    'VISITOR_PRIVACY_METADATA': 'CgJJThIEGgAgKA%3D%3D',
+    'YSC': 'G5P-C1Yb9HA',
+    'VISITOR_INFO1_LIVE': 'bRix5ZcqxGE',
+    'VISITOR_PRIVACY_METADATA': 'CgJJThIEGgAgKg%3D%3D',
 }
 headers = {
     'Connection': 'keep-alive',
-    'User-Agent': 'com.google.ios.youtube/19.09.3 (iPhone14,3; U; CPU iOS 15_6 like Mac OS X)',
+    'User-Agent': 'com.google.ios.youtube/19.29.1 (iPhone16,2; U; CPU iOS 17_5_1 like Mac OS X;)',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-us,en;q=0.5',
     'Sec-Fetch-Mode': 'navigate',
     'X-Youtube-Client-Name': '5',
-    'X-Youtube-Client-Version': '19.09.3',
+    'X-Youtube-Client-Version': '19.29.1',
     'Origin': 'https://www.youtube.com',
 }
 params = {
@@ -28,9 +28,11 @@ json_data = {
     'context': {
         'client': {
             'clientName': 'IOS',
-            'clientVersion': '19.09.3',
-            'deviceModel': 'iPhone14,3',
+            'clientVersion': '19.29.1',
+            "deviceMake": "Apple",
+            'deviceModel': 'iPhone16,2',
             'userAgent': 'com.google.ios.youtube/19.09.3 (iPhone14,3; U; CPU iOS 15_6 like Mac OS X)',
+            "osVersion": "17.5.1.21F90",
             'hl': 'en',
             'timeZone': 'UTC',
             'utcOffsetMinutes': 0,
