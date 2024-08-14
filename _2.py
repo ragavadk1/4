@@ -52,11 +52,14 @@ response = requests.post(
     headers=headers,
     json=json_data,
 )
-pr = response.json()['streamingData']["adaptiveFormats"]
+pr = response.json()
+print(pr)
+aq = pr['streamingData']["adaptiveFormats"]
+print(aq)
 #pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
 #print(response.text)
 l = []
-for __ in pr:
+for __ in aq:
     if "1080p" in str(__) and "mp4" in str(__):
         l.append(__)
     if "AUDIO_QUALITY_MEDIUM" in str(__) and not 'isDrc' in str(__):
@@ -66,4 +69,4 @@ a = l[-1]['url']
 print("AUDIO : ", a)
 print("VIDEO : ", v)
 
-os.system(f"ffmpeg -ss 7:00:00 -to 10:00:00 -re -i '{v}' -ss 7:00:00 -to 10:00:00 -re -i '{a}' -threads 4 -vcodec libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+#os.system(f"ffmpeg -ss 7:00:00 -to 10:00:00 -re -i '{v}' -ss 7:00:00 -to 10:00:00 -re -i '{a}' -threads 4 -vcodec libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
