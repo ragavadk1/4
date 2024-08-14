@@ -54,7 +54,8 @@ response = requests.post(
 )
 pr = response.json()
 print(pr)
-aq = pr['streamingData']["adaptiveFormats"]
+"""
+#aq = pr['streamingData']["adaptiveFormats"]
 print(aq)
 #pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
 #print(response.text)
@@ -70,3 +71,4 @@ print("AUDIO : ", a)
 print("VIDEO : ", v)
 
 #os.system(f"ffmpeg -ss 7:00:00 -to 10:00:00 -re -i '{v}' -ss 7:00:00 -to 10:00:00 -re -i '{a}' -threads 4 -vcodec libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+"""
