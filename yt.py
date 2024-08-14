@@ -52,9 +52,11 @@ response = requests.post(
     headers=headers,
     json=json_data,
 )
-pr = response.json()['streamingData']["adaptiveFormats"]
-#pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
+#pr = response.json()['streamingData']["adaptiveFormats"]
+pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
+print(pr)
 #print(response.text)
+"""
 l = []
 for __ in pr:
     if "1080p" in str(__) and "mp4" in str(__):
@@ -65,5 +67,5 @@ v = l[0]['url']
 a = l[-1]['url']
 print("AUDIO : ", a)
 print("VIDEO : ", v)
-
-os.system(f"ffmpeg -ss 00:00:00 -to 09:08:00 -re -i '{v}' -ss 00:00:00 -to 09:08:00 -re -i '{a}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
+"""
+os.system(f"ffmpeg -ss 00:00:00 -to 09:08:01 -re -i '{pr}' -map 0:p:6 -threads 4 -vf \"format=yuv420p\" -c:v libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
