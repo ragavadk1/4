@@ -1,6 +1,7 @@
 import requests
 import json
 import re
+import os
 
 cookies = {
     'ST-17nskln': 'itct=CLADEKQwGAEiEwjEzuiFifqHAxXBgmMGHY0hLwwyB3JlbGF0ZWRIrYHp0Mej2a6OAZoBBQgBEPgd&csn=k5sALznerfeekHse&session_logininfo=AFmmF2swRAIgPpgFTCYVhzMZTV-rUjxUDbp2g43WT8AjQDhXPDi_C2MCIA7wVzCPDvzNY5PBig_WVXmUlbuZRmkZ0tpTVz6oI6O7%3AQUQ3MjNmenhnRUh6UE4yazhGYkJhRXIyaURfLTNpTEVfWHUxLXpUTk9UZGhRTE0tRTRTaGtxSklnd2E5ek1NYWR5NmFPUGRXUGF2RkFHbU1JVXNEZGVzSTFhZ1RZeU12QXVJVmxSakdZZWVxR2lRTmpuRnVwbWJUTTlxeVBXLWJSWHhVa093Yzc0U3AzU3VQLUsxbkxER0pZUWZJSHBvNmxR&endpoint=%7B%22clickTrackingParams%22%3A%22CLADEKQwGAEiEwjEzuiFifqHAxXBgmMGHY0hLwwyB3JlbGF0ZWRIrYHp0Mej2a6OAZoBBQgBEPgd%22%2C%22commandMetadata%22%3A%7B%22webCommandMetadata%22%3A%7B%22url%22%3A%22%2Fwatch%3Fv%3D669eV_kjAmQ%22%2C%22webPageType%22%3A%22WEB_PAGE_TYPE_WATCH%22%2C%22rootVe%22%3A3832%7D%7D%2C%22watchEndpoint%22%3A%7B%22videoId%22%3A%22669eV_kjAmQ%22%2C%22nofollow%22%3Atrue%2C%22watchEndpointSupportedOnesieConfig%22%3A%7B%22html5PlaybackOnesieConfig%22%3A%7B%22commonConfig%22%3A%7B%22url%22%3A%22https%3A%2F%2Frr8---sn-ci5gup-jwce.googlevideo.com%2Finitplayback%3Fsource%3Dyoutube%26oeis%3D1%26c%3DWEB%26oad%3D3200%26ovd%3D3200%26oaad%3D11000%26oavd%3D11000%26ocs%3D700%26oewis%3D1%26oputc%3D1%26ofpcc%3D1%26siu%3D1%26msp%3D1%26odepv%3D1%26id%3Debaf5e57f9230264%26ip%3D2401%253A4900%253A8824%253A42c5%253A6de7%253Afdec%253A1a33%253A194c%26initcwndbps%3D1815000%26mt%3D1723830090%26oweuc%3D%26pxtags%3DCg4KAnR4Egg1MTE4MTI5Nw%26rxtags%3DCg4KAnR4Egg1MTE4MTI5Ng%252CCg4KAnR4Egg1MTE4MTI5Nw%252CCg4KAnR4Egg1MTE4MTI5OA%22%7D%7D%7D%7D%7D',
@@ -201,4 +202,7 @@ response = requests.post(
     headers=headers,
     json=json_data,
 )
-print(json.loads(response.text))
+pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
+print(pr)
+
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -to 01:00:01 -re -i '{pr}' -map 0:p:6 -threads 4 -vf \"format=yuv420p\" -c:v libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
