@@ -29,7 +29,7 @@ cookies = {
 }
 
 headers = {
-    'referer': 'https://www.youtube.com/watch?v=vZvL6ZRiKls',
+    'referer': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
     'x-goog-visitor-id': 'CgtKR01Ha294bFUxVSjmof61BjIKCgJJThIEGgAgUQ%3D%3D',
     'x-goog-authuser': '0',
@@ -65,7 +65,7 @@ json_data = {
             'clientVersion': '2.20240816.01.00',
             'osName': 'Macintosh',
             'osVersion': '10_15_7',
-            'originalUrl': 'https://www.youtube.com/watch?v=vZvL6ZRiKls',
+            'originalUrl': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
             'screenPixelDensity': 2,
             'platform': 'DESKTOP',
             'clientFormFactor': 'UNKNOWN_FORM_FACTOR',
@@ -84,7 +84,7 @@ json_data = {
             'utcOffsetMinutes': 330,
             'clientScreen': 'WATCH',
             'mainAppWebInfo': {
-                'graftUrl': '/watch?v=vZvL6ZRiKls',
+                'graftUrl': '/watch?v=gdmMZRH34uE',
                 'webDisplayMode': 'WEB_DISPLAY_MODE_BROWSER',
                 'isWebNativeShareAvailable': True,
             },
@@ -173,17 +173,17 @@ json_data = {
             ],
         },
     },
-    'videoId': 'vZvL6ZRiKls',
+    'videoId': 'gdmMZRH34uE',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=vZvL6ZRiKls',
+            'currentUrl': '/watch?v=gdmMZRH34uE',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
             'autonavState': 'STATE_NONE',
             'html5Preference': 'HTML5_PREF_WANTS',
             'signatureTimestamp': 19949,
-            'referer': 'https://www.youtube.com/watch?v=vZvL6ZRiKls',
+            'referer': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
             'lactMilliseconds': '-1',
             'watchAmbientModeContext': {
                 'hasShownAmbientMode': True,
@@ -204,5 +204,5 @@ response = requests.post(
 )
 pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
 #print(pr)
-
+#print(response.text)
 os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
