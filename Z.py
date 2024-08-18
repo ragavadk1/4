@@ -205,4 +205,4 @@ response = requests.post(
 pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
 print(pr)
 
-os.system(f"ffmpeg -http_persistent 0 -re -ss 00:00:44 -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=0:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
+os.system(f"ffmpeg -http_persistent 0 -re -ss 05:00:00 -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=0:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
