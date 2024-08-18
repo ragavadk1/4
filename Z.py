@@ -29,7 +29,7 @@ cookies = {
 }
 
 headers = {
-    'referer': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
+    'referer': 'https://www.youtube.com/watch?v=HJ6EIysyst8-AQ',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
     'x-goog-visitor-id': 'CgtKR01Ha294bFUxVSjmof61BjIKCgJJThIEGgAgUQ%3D%3D',
     'x-goog-authuser': '0',
@@ -65,7 +65,7 @@ json_data = {
             'clientVersion': '2.20240816.01.00',
             'osName': 'Macintosh',
             'osVersion': '10_15_7',
-            'originalUrl': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
+            'originalUrl': 'https://www.youtube.com/watch?v=HJ6EIysyst8-AQ',
             'screenPixelDensity': 2,
             'platform': 'DESKTOP',
             'clientFormFactor': 'UNKNOWN_FORM_FACTOR',
@@ -84,7 +84,7 @@ json_data = {
             'utcOffsetMinutes': 330,
             'clientScreen': 'WATCH',
             'mainAppWebInfo': {
-                'graftUrl': '/watch?v=gdmMZRH34uE',
+                'graftUrl': '/watch?v=HJ6EIysyst8-AQ',
                 'webDisplayMode': 'WEB_DISPLAY_MODE_BROWSER',
                 'isWebNativeShareAvailable': True,
             },
@@ -173,17 +173,17 @@ json_data = {
             ],
         },
     },
-    'videoId': 'gdmMZRH34uE',
+    'videoId': 'HJ6EIysyst8',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=gdmMZRH34uE',
+            'currentUrl': '/watch?v=HJ6EIysyst8-AQ',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
             'autonavState': 'STATE_NONE',
             'html5Preference': 'HTML5_PREF_WANTS',
             'signatureTimestamp': 19949,
-            'referer': 'https://www.youtube.com/watch?v=gdmMZRH34uE',
+            'referer': 'https://www.youtube.com/watch?v=HJ6EIysyst8-AQ',
             'lactMilliseconds': '-1',
             'watchAmbientModeContext': {
                 'hasShownAmbientMode': True,
@@ -203,6 +203,6 @@ response = requests.post(
     json=json_data,
 )
 pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
-#print(pr)
-#print(response.text)
-os.system(f"ffmpeg -http_persistent 0 -re -ss 05:00:00 -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
+print(pr)
+
+os.system(f"ffmpeg -http_persistent 0 -re -ss 00:00:044 -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=1:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
