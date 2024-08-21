@@ -173,10 +173,10 @@ json_data = {
             ],
         },
     },
-    'videoId': 'RqEkCBBEP6I',
+    'videoId': 'kAmUDo_-5PI',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=RqEkCBBEP6I',
+            'currentUrl': '/watch?v=kAmUDo_-5PI',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
@@ -207,5 +207,6 @@ print(pr)
 
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
-#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=0:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
-os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=0:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
+
+#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
