@@ -173,10 +173,10 @@ json_data = {
             ],
         },
     },
-    'videoId': 'jTx5GetgC-M',
+    'videoId': 'kAmUDo_-5PI',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=jTx5GetgC-M',
+            'currentUrl': '/watch?v=kAmUDo_-5PI',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
@@ -203,11 +203,31 @@ response = requests.post(
     json=json_data,
 )
 pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
-print(pr)
+#print(pr)
 
+
+#pr = response.json()['streamingData']["adaptiveFormats"]
+#pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
+#print(response.text)
+"""
+l = []
+for __ in pr:
+    if "1080p" in str(__) and "mp4" in str(__):
+        l.append(__)
+    if "AUDIO_QUALITY_MEDIUM" in str(__) and not 'isDrc' in str(__):
+        l.append(__)
+
+
+#print(l)
+v = l[0]['url']
+##print(v)
+a = l[-1]['url']
+print("AUDIO : ", a)
+print("VIDEO : ", v)
+"""
 #https://youtu.be/jTx5GetgC-M
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
-os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FunnyBunny - YT':fontcolor=white:fontsize=18:box=0:boxcolor=black@0.5:boxborderw=15:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
+os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -c:v copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/8hbq-q5s1-caf5-cjfx-auke")
 
 #os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
